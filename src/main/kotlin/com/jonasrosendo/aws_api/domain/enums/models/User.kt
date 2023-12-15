@@ -20,8 +20,8 @@ data class User(
     @Column(name = "role", length = 20, nullable = false)
     @Enumerated(value = EnumType.STRING)
     val role: Role,
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "owner")
     val requests: List<Request> = arrayListOf(),
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "owner")
     val stages: List<RequestStage> = arrayListOf()
 ) : Serializable

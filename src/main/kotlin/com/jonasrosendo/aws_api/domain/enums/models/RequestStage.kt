@@ -24,6 +24,6 @@ data class RequestStage(
     @JoinColumn(name = "request_id", referencedColumnName = "id", nullable = false)
     val request: Request,
     @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
-    val user: User
+    @JoinColumn(name = "owner_id", referencedColumnName = "id", nullable = false)
+    val owner: User
 ) : Serializable

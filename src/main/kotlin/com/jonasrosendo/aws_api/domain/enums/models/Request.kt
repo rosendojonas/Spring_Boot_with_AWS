@@ -23,8 +23,8 @@ data class Request(
     @Enumerated(value = EnumType.STRING)
     val state: RequestState,
     @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
-    val user: User,
+    @JoinColumn(name = "owner_id", referencedColumnName = "id", nullable = false)
+    val owner: User,
     @OneToMany(mappedBy = "request")
     val stages: List<RequestStage> = arrayListOf()
 ) : Serializable
