@@ -1,4 +1,4 @@
-package com.jonasrosendo.aws_api.domain.enums.models
+package com.jonasrosendo.aws_api.domain.models
 
 import com.jonasrosendo.aws_api.domain.enums.Role
 import jakarta.persistence.*
