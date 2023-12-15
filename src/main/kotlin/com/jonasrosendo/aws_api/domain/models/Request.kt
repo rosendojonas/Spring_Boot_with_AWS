@@ -3,7 +3,7 @@ package com.jonasrosendo.aws_api.domain.models
 import com.jonasrosendo.aws_api.domain.enums.RequestState
 import jakarta.persistence.*
 import java.io.Serializable
-import java.util.Date
+import java.util.*
 
 @Entity(name = "requests")
 @Table(name = "requests")

@@ -1,11 +1,9 @@
 package com.jonasrosendo.aws_api.domain.models
 
 import com.jonasrosendo.aws_api.domain.enums.RequestState
-import com.jonasrosendo.aws_api.domain.models.Request
-import com.jonasrosendo.aws_api.domain.models.User
 import jakarta.persistence.*
 import java.io.Serializable
-import java.util.Date
+import java.util.*
 
 @Entity(name = "request_stage")
 @Table(name = "request_stage")
