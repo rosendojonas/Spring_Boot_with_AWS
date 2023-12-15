@@ -2,6 +2,7 @@ package com.jonasrosendo.aws_api.domain.enums.models
 
 import com.jonasrosendo.aws_api.domain.enums.RequestState
 import jakarta.persistence.*
+import java.io.Serializable
 import java.util.Date
 
 @Entity(name = "request_stage")
@@ -25,4 +26,4 @@ data class RequestStage(
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
     val user: User
-)
+) : Serializable

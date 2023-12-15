@@ -2,6 +2,7 @@ package com.jonasrosendo.aws_api.domain.enums.models
 
 import com.jonasrosendo.aws_api.domain.enums.RequestState
 import jakarta.persistence.*
+import java.io.Serializable
 import java.util.Date
 
 @Entity(name = "requests")
@@ -26,4 +27,4 @@ data class Request(
     val user: User,
     @OneToMany(mappedBy = "request")
     val stages: List<RequestStage> = arrayListOf()
-)
+) : Serializable
