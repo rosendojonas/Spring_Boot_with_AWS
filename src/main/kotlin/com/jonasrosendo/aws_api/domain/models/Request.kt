@@ -11,7 +11,7 @@ data class Request(
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long,
+    val id: Long? = null,
     @Column(name = "subject", length = 75, nullable = false)
     val subject :String,
     @Column(name = "description", columnDefinition = "text")

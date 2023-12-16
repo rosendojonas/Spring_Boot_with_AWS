@@ -11,7 +11,7 @@ data class RequestStage(
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long,
+    val id: Long? = null,
     @Column(name = "description", columnDefinition = "text")
     val description: String,
     @Column(name = "realization_date", nullable = false)
