@@ -4,7 +4,7 @@ import com.jonasrosendo.aws_api.domain.enums.Role
 import jakarta.persistence.*
 import java.io.Serializable
 
-@Entity(name = "users")
+@Entity
 @Table(name = "users")
 data class User(
 
@@ -19,7 +19,7 @@ data class User(
     val password: String,
     @Column(name = "role", length = 20, nullable = false)
     @Enumerated(value = EnumType.STRING)
-    val role: Role,
+    val role: Role = Role.SIMPLE,
     @OneToMany(mappedBy = "owner")
     val requests: List<Request> = arrayListOf(),
     @OneToMany(mappedBy = "owner")

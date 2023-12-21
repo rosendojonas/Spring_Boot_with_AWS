@@ -5,7 +5,7 @@ import jakarta.persistence.*
 import java.io.Serializable
 import java.util.*
 
-@Entity(name = "request_stage")
+@Entity
 @Table(name = "request_stage")
 data class RequestStage(
 

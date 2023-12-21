@@ -5,7 +5,7 @@ import jakarta.persistence.*
 import java.io.Serializable
 import java.util.*
 
-@Entity(name = "requests")
+@Entity
 @Table(name = "requests")
 data class Request(
 

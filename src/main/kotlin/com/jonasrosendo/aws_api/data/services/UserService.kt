@@ -3,21 +3,28 @@ package com.jonasrosendo.aws_api.data.services
 import com.jonasrosendo.aws_api.data.repositories.UserRepository
 import com.jonasrosendo.aws_api.domain.models.User
 import jakarta.persistence.EntityNotFoundException
+import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
 import javax.security.auth.login.CredentialException
 
 @Service
 class UserService(
     private val userRepository: UserRepository,
+    private val bCryptPasswordEncoder: PasswordEncoder,
 ) {
 
     fun saveUser(user: User): User {
-        val createdUser = userRepository.save(user)
-        return createdUser
+        val encryptedPassword = bCryptPasswordEncoder.encode(user.password)
+        val userWithEncryptedPassword = user.copy(password = encryptedPassword)
+        return userRepository.save(userWithEncryptedPassword)
     }
 
     fun updateUser(user: User): User {
-        val updatedUser = userRepository.save(user)
+        val updatedUser = userRepository.save(
+            user.copy(
+                password = bCryptPasswordEncoder.encode(user.password)
+            )
+        )
         return updatedUser
     }
 
@@ -33,8 +40,18 @@ class UserService(
         return userRepository.findAll()
     }
 
+    private fun findUserByEmail(email: String): User? {
+        return userRepository.findUserByEmail(email)
+    }
+
     fun login(email: String, password: String): User {
-        val user = userRepository.login(email = email, password = password) ?: throw CredentialException()
-        return user
+        val user = findUserByEmail(email)
+
+        val isCredentialValid = user?.let {
+            bCryptPasswordEncoder.matches(password, user.password)
+        } ?: false
+
+        return if (isCredentialValid) user!! else throw CredentialException("Invalid Credentials")
+
     }
 }
