@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository
 @Repository
 interface RequestRepository : JpaRepository<Request, Long> {
 
-    fun findAllByOwnerId(id: Long): List<Request>
+    fun findAllByOwnerId(ownerId: Long): List<Request>
 }
