@@ -35,7 +35,7 @@ object RestConstants {
         /**
          * api/v1/request-stages
          **/
-        const val ROOT_REQUEST_CONTROLLER = "$API_V1/$REQUEST_STAGES"
+        const val ROOT_REQUEST_STAGE_CONTROLLER = "$API_V1/$REQUEST_STAGES"
 
     }
 

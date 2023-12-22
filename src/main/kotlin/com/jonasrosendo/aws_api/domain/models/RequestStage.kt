@@ -19,7 +19,7 @@ data class RequestStage(
     val realizationDate: Date,
     @Column(name = "state", nullable = false)
     @Enumerated(value = EnumType.STRING)
-    val state: RequestState,
+    val state: RequestState = RequestState.OPEN,
     @ManyToOne
     @JoinColumn(name = "request_id", referencedColumnName = "id", nullable = false)
     val request: Request,
