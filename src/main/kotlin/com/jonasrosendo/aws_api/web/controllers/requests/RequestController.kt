@@ -36,14 +36,25 @@ class RequestController(
     }
 
     @GetMapping("/{id}")
-    fun findById(@PathVariable id: Long): ResponseEntity<Request> {
+    fun findById(
+        @PathVariable id: Long,
+    ): ResponseEntity<Request> {
 
         val request = useCases.getRequestByIdUseCase(id)
         return ResponseEntity.ok(request)
     }
 
     @GetMapping
-    fun findAll(): List<Request> {
-        return useCases.getAllRequestsUseCase()
+    fun findAll(): ResponseEntity<List<Request>> {
+        val requests = useCases.getAllRequestsUseCase()
+        return ResponseEntity.ok(requests)
+    }
+
+    @GetMapping("/owner/{id}")
+    fun findAllByOwnerId(
+        @PathVariable id: Long,
+    ): ResponseEntity<List<Request>> {
+        val requests = useCases.getAllRequestsByOwnerIdUseCase(id)
+        return ResponseEntity.ok(requests)
     }
 }

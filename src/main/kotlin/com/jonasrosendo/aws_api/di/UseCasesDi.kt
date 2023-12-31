@@ -14,13 +14,15 @@ class UseCasesDi {
         createRequestUseCase: CreateRequestUseCase,
         updateRequestUseCase: UpdateRequestUseCase,
         getRequestByIdUseCase: GetRequestByIdUseCase,
-        getAllRequestsUseCase: GetAllRequestsUseCase
+        getAllRequestsUseCase: GetAllRequestsUseCase,
+        getAllRequestsByOwnerIdUseCase: GetAllRequestsByOwnerIdUseCase
     ): RequestUseCases {
         return RequestUseCases(
             createRequestUseCase = createRequestUseCase,
             updateRequestUseCase = updateRequestUseCase,
             getRequestByIdUseCase = getRequestByIdUseCase,
-            getAllRequestsUseCase = getAllRequestsUseCase
+            getAllRequestsUseCase = getAllRequestsUseCase,
+            getAllRequestsByOwnerIdUseCase = getAllRequestsByOwnerIdUseCase
         )
     }
 
@@ -50,5 +52,9 @@ class UseCasesDi {
         return GetAllRequestsUseCase(requestService)
     }
 
+    @Bean
+    fun getAllRequestsByOwnerIdUseCase(requestService: RequestService): GetAllRequestsByOwnerIdUseCase {
+        return GetAllRequestsByOwnerIdUseCase(requestService)
+    }
 
 }
