@@ -2,10 +2,7 @@ package com.jonasrosendo.aws_api.di
 
 import com.jonasrosendo.aws_api.data.services.RequestService
 import com.jonasrosendo.aws_api.data.services.UserService
-import com.jonasrosendo.aws_api.domain.usercases.CreateRequestUseCase
-import com.jonasrosendo.aws_api.domain.usercases.GetRequestByIdUseCase
-import com.jonasrosendo.aws_api.domain.usercases.RequestUseCases
-import com.jonasrosendo.aws_api.domain.usercases.UpdateRequestUseCase
+import com.jonasrosendo.aws_api.domain.usercases.*
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
@@ -17,11 +14,13 @@ class UseCasesDi {
         createRequestUseCase: CreateRequestUseCase,
         updateRequestUseCase: UpdateRequestUseCase,
         getRequestByIdUseCase: GetRequestByIdUseCase,
+        getAllRequestsUseCase: GetAllRequestsUseCase
     ): RequestUseCases {
         return RequestUseCases(
             createRequestUseCase = createRequestUseCase,
             updateRequestUseCase = updateRequestUseCase,
-            getRequestByIdUseCase = getRequestByIdUseCase
+            getRequestByIdUseCase = getRequestByIdUseCase,
+            getAllRequestsUseCase = getAllRequestsUseCase
         )
     }
 
@@ -45,4 +44,11 @@ class UseCasesDi {
     fun getRequestByIdUseCase(requestService: RequestService): GetRequestByIdUseCase {
         return GetRequestByIdUseCase(requestService)
     }
+
+    @Bean
+    fun getAllRequestsUseCase(requestService: RequestService): GetAllRequestsUseCase {
+        return GetAllRequestsUseCase(requestService)
+    }
+
+
 }

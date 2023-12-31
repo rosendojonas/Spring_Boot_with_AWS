@@ -41,4 +41,9 @@ class RequestController(
         val request = useCases.getRequestByIdUseCase(id)
         return ResponseEntity.ok(request)
     }
+
+    @GetMapping
+    fun findAll(): List<Request> {
+        return useCases.getAllRequestsUseCase()
+    }
 }
