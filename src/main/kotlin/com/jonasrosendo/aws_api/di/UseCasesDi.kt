@@ -3,6 +3,7 @@ package com.jonasrosendo.aws_api.di
 import com.jonasrosendo.aws_api.data.services.RequestService
 import com.jonasrosendo.aws_api.data.services.UserService
 import com.jonasrosendo.aws_api.domain.usercases.CreateRequestUseCase
+import com.jonasrosendo.aws_api.domain.usercases.GetRequestByIdUseCase
 import com.jonasrosendo.aws_api.domain.usercases.RequestUseCases
 import com.jonasrosendo.aws_api.domain.usercases.UpdateRequestUseCase
 import org.springframework.context.annotation.Bean
@@ -15,10 +16,12 @@ class UseCasesDi {
     fun requestRequestUseCases(
         createRequestUseCase: CreateRequestUseCase,
         updateRequestUseCase: UpdateRequestUseCase,
+        getRequestByIdUseCase: GetRequestByIdUseCase,
     ): RequestUseCases {
         return RequestUseCases(
             createRequestUseCase = createRequestUseCase,
-            updateRequestUseCase = updateRequestUseCase
+            updateRequestUseCase = updateRequestUseCase,
+            getRequestByIdUseCase = getRequestByIdUseCase
         )
     }
 
@@ -36,5 +39,10 @@ class UseCasesDi {
             requestService = requestService,
             userService = userService
         )
+    }
+
+    @Bean
+    fun getRequestByIdUseCase(requestService: RequestService): GetRequestByIdUseCase {
+        return GetRequestByIdUseCase(requestService)
     }
 }

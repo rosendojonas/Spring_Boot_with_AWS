@@ -30,6 +30,15 @@ class RequestController(
         @RequestBody updateRequestDTO: UpdateRequestDTO,
         @PathVariable id: Long,
     ): ResponseEntity<Request> {
-        return ResponseEntity.ok(useCases.updateRequestUseCase(updateRequestDTO, id))
+
+        val request = useCases.updateRequestUseCase(updateRequestDTO, id)
+        return ResponseEntity.ok(request)
+    }
+
+    @GetMapping("/{id}")
+    fun findById(@PathVariable id: Long): ResponseEntity<Request> {
+
+        val request = useCases.getRequestByIdUseCase(id)
+        return ResponseEntity.ok(request)
     }
 }

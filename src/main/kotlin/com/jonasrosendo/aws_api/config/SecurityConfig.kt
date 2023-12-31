@@ -33,6 +33,7 @@ class SecurityConfig {
                     .requestMatchers(HttpMethod.POST, "/api/v1/users").permitAll()
                     .requestMatchers(HttpMethod.POST, "/api/v1/requests").permitAll()
                     .requestMatchers(HttpMethod.PATCH, "/api/v1/requests/{id}").permitAll()
+                    .requestMatchers(HttpMethod.GET, "/api/v1/requests/{id}").permitAll()
                     .requestMatchers(HttpMethod.POST, "/api/v1/users/login").permitAll()
                     .anyRequest().authenticated()
             }
