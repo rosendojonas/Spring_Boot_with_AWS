@@ -1,4 +1,4 @@
-package com.jonasrosendo.aws_api.domain.dtos
+package com.jonasrosendo.aws_api.domain.dtos.requests
 
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.jonasrosendo.aws_api.utils.EMAIL_VALIDATION_PATTERN

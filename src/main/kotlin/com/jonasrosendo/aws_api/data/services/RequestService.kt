@@ -14,8 +14,7 @@ class RequestService(
     fun save(
         request: Request,
     ): Request {
-        val savedRequest = requestRepository.save(request)
-        return savedRequest
+        return requestRepository.save(request)
     }
 
     fun update(request: Request): Request {
