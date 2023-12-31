@@ -1,5 +1,6 @@
 package com.jonasrosendo.aws_api.domain.models
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import com.jonasrosendo.aws_api.domain.enums.RequestState
 import jakarta.persistence.*
 import java.io.Serializable
@@ -22,6 +23,7 @@ data class Request(
     @Column(name = "state", length = 12, nullable = false)
     @Enumerated(value = EnumType.STRING)
     val state: RequestState,
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "owner_id", referencedColumnName = "id", nullable = false)
     val owner: User,

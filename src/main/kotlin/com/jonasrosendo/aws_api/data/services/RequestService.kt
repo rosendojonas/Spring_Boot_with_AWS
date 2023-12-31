@@ -1,20 +1,21 @@
 package com.jonasrosendo.aws_api.data.services
 
 import com.jonasrosendo.aws_api.data.repositories.RequestRepository
-import com.jonasrosendo.aws_api.domain.enums.RequestState
+import com.jonasrosendo.aws_api.data.repositories.UserRepository
 import com.jonasrosendo.aws_api.domain.models.Request
 import jakarta.persistence.EntityNotFoundException
 import org.springframework.stereotype.Service
-import java.util.*
 
 @Service
 class RequestService(
-    private val requestRepository: RequestRepository,
+    private val requestRepository: RequestRepository
 ) {
 
-    fun save(request: Request): Request {
-        val openedRequest = request.copy(state = RequestState.OPEN, creationAt = Date())
-        return requestRepository.save(openedRequest)
+    fun save(
+        request: Request,
+    ): Request {
+        val savedRequest = requestRepository.save(request)
+        return savedRequest
     }
 
     fun update(request: Request): Request {

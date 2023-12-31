@@ -4,15 +4,6 @@ import com.jonasrosendo.aws_api.domain.UserResponse
 import com.jonasrosendo.aws_api.domain.dtos.UserDTO
 import com.jonasrosendo.aws_api.domain.models.User
 
-
-fun User.toDto(): UserDTO {
-    return UserDTO(
-        name = name,
-        email = email,
-        password = password
-    )
-}
-
 fun UserDTO.toUser(): User {
     return User(
         name = name,

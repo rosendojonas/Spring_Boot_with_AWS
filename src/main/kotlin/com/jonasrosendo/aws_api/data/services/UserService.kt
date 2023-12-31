@@ -40,8 +40,8 @@ class UserService(
         return userRepository.findAll()
     }
 
-    private fun findUserByEmail(email: String): User? {
-        return userRepository.findUserByEmail(email)
+    fun findUserByEmail(email: String): User? {
+        return userRepository.findByEmail(email)
     }
 
     fun login(email: String, password: String): User {

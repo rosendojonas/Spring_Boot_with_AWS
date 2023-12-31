@@ -1,5 +1,6 @@
 package com.jonasrosendo.aws_api.domain.dtos
 
+import com.jonasrosendo.aws_api.utils.EMAIL_VALIDATION_PATTERN
 import jakarta.validation.constraints.Email
 import jakarta.validation.constraints.NotEmpty
 import jakarta.validation.constraints.Pattern
@@ -10,7 +11,7 @@ data class LoginDTO(
     @NotEmpty(message = "E-mail should not be empty")
     @Email(
         message = "E-mail not valid",
-        regexp = "^[a-z0-9.+-]+@[a-z0-9.-]+\\.[a-z]{2,}$"
+        regexp = EMAIL_VALIDATION_PATTERN
     )
     val email: String,
 
