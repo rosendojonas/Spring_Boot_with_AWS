@@ -1,4 +1,4 @@
-package com.jonasrosendo.aws_api.web.controllers
+package com.jonasrosendo.aws_api.web.controllers.requests
 
 import com.jonasrosendo.aws_api.utils.RestConstants.RequestStages
 import org.springframework.web.bind.annotation.RequestMapping

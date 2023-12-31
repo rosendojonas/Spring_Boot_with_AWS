@@ -1,11 +1,10 @@
-package com.jonasrosendo.aws_api.web.controllers
+package com.jonasrosendo.aws_api.web.controllers.users
 
 import com.jonasrosendo.aws_api.data.services.UserService
-import com.jonasrosendo.aws_api.domain.UserResponse
+import com.jonasrosendo.aws_api.domain.responses.UserResponse
 import com.jonasrosendo.aws_api.domain.dtos.LoginDTO
 import com.jonasrosendo.aws_api.domain.dtos.UserDTO
 import com.jonasrosendo.aws_api.domain.models.User
-import com.jonasrosendo.aws_api.utils.RestConstants
 import com.jonasrosendo.aws_api.utils.RestConstants.Users
 import com.jonasrosendo.aws_api.web.mapper.toResponse
 import com.jonasrosendo.aws_api.web.mapper.toUser

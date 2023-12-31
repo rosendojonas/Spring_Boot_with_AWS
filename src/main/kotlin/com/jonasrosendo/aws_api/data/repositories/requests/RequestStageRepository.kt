@@ -1,4 +1,4 @@
-package com.jonasrosendo.aws_api.data.repositories
+package com.jonasrosendo.aws_api.data.repositories.requests
 
 import com.jonasrosendo.aws_api.domain.enums.RequestState
 import com.jonasrosendo.aws_api.domain.models.Request

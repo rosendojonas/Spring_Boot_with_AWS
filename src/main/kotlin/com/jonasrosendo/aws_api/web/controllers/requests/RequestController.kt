@@ -1,4 +1,4 @@
-package com.jonasrosendo.aws_api.web.controllers
+package com.jonasrosendo.aws_api.web.controllers.requests
 
 import com.jonasrosendo.aws_api.domain.dtos.requests.CreateRequestDTO
 import com.jonasrosendo.aws_api.domain.dtos.requests.UpdateRequestDTO

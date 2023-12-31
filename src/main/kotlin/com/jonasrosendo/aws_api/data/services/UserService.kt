@@ -1,6 +1,6 @@
 package com.jonasrosendo.aws_api.data.services
 
-import com.jonasrosendo.aws_api.data.repositories.UserRepository
+import com.jonasrosendo.aws_api.data.repositories.users.UserRepository
 import com.jonasrosendo.aws_api.domain.models.User
 import jakarta.persistence.EntityNotFoundException
 import org.springframework.security.crypto.password.PasswordEncoder

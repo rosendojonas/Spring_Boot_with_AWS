@@ -1,4 +1,4 @@
-package com.jonasrosendo.aws_api.domain
+package com.jonasrosendo.aws_api.domain.responses
 
 data class UserResponse(
     val id: Long,

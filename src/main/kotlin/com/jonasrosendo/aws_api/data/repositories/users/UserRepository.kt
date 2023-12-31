@@ -1,4 +1,4 @@
-package com.jonasrosendo.aws_api.data.repositories
+package com.jonasrosendo.aws_api.data.repositories.users
 
 import com.jonasrosendo.aws_api.domain.models.User
 import org.springframework.data.jpa.repository.JpaRepository

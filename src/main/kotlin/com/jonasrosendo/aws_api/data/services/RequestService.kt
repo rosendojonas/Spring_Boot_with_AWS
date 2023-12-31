@@ -1,7 +1,6 @@
 package com.jonasrosendo.aws_api.data.services
 
-import com.jonasrosendo.aws_api.data.repositories.RequestRepository
-import com.jonasrosendo.aws_api.data.repositories.UserRepository
+import com.jonasrosendo.aws_api.data.repositories.requests.RequestRepository
 import com.jonasrosendo.aws_api.domain.models.Request
 import jakarta.persistence.EntityNotFoundException
 import org.springframework.stereotype.Service

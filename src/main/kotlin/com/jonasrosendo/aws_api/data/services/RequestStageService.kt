@@ -1,6 +1,6 @@
 package com.jonasrosendo.aws_api.data.services
 
-import com.jonasrosendo.aws_api.data.repositories.RequestStageRepository
+import com.jonasrosendo.aws_api.data.repositories.requests.RequestStageRepository
 import com.jonasrosendo.aws_api.domain.enums.RequestState
 import com.jonasrosendo.aws_api.domain.models.Request
 import com.jonasrosendo.aws_api.domain.models.RequestStage

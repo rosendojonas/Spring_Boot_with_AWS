@@ -1,6 +1,6 @@
 package com.jonasrosendo.aws_api.web.mapper
 
-import com.jonasrosendo.aws_api.domain.UserResponse
+import com.jonasrosendo.aws_api.domain.responses.UserResponse
 import com.jonasrosendo.aws_api.domain.dtos.UserDTO
 import com.jonasrosendo.aws_api.domain.models.User
 
