@@ -38,6 +38,9 @@ class SecurityConfig {
                     .requestMatchers(HttpMethod.GET, "/api/v1/requests/{id}").permitAll()
                     .requestMatchers(HttpMethod.GET, "/api/v1/requests/owner/{id}").permitAll()
                     .requestMatchers(HttpMethod.POST, "/api/v1/request-stages").permitAll()
+                    .requestMatchers(HttpMethod.GET, "/api/v1/request-stages/request/{id}").permitAll()
+                    .requestMatchers(HttpMethod.GET, "/api/v1/request-stages/{id}").permitAll()
+                    .requestMatchers(HttpMethod.PATCH, "/api/v1/request-stages").permitAll()
                     .anyRequest().authenticated()
             }
             .sessionManagement { session: SessionManagementConfigurer<HttpSecurity?> ->

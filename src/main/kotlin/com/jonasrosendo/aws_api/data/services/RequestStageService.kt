@@ -2,7 +2,6 @@ package com.jonasrosendo.aws_api.data.services
 
 import com.jonasrosendo.aws_api.data.repositories.requests.RequestStageRepository
 import com.jonasrosendo.aws_api.domain.enums.RequestState
-import com.jonasrosendo.aws_api.domain.models.Request
 import com.jonasrosendo.aws_api.domain.models.RequestStage
 import jakarta.persistence.EntityNotFoundException
 import org.springframework.stereotype.Service
@@ -23,11 +22,16 @@ class RequestStageService(
         }
     }
 
-    fun findByAllByRequestId(id: Long): List<RequestStage> {
+    fun findAllByRequestId(id: Long): List<RequestStage> {
         return requestStageRepository.findAllByRequestId(id = id)
     }
 
-    fun updateStatus(id: Long, state: RequestState): Request {
-        return requestStageRepository.updateStatus(id = id, state = state)
+    fun updateStatus(id: Long, state: RequestState): RequestStage {
+        val currentRequestStage = requestStageRepository.findById(id).orElseThrow {
+            throw EntityNotFoundException("Could not find request stage with id='$id'")
+        }
+
+        val updatedRequestStage = currentRequestStage.copy(state = state)
+        return requestStageRepository.save(updatedRequestStage)
     }
 }
