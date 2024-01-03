@@ -2,12 +2,10 @@ package com.jonasrosendo.aws_api.di
 
 import com.jonasrosendo.aws_api.data.services.RequestService
 import com.jonasrosendo.aws_api.data.services.RequestStageService
-import com.jonasrosendo.aws_api.data.services.UserService
 import com.jonasrosendo.aws_api.domain.usercases.request_stages.CreateRequestStageUseCase
 import com.jonasrosendo.aws_api.domain.usercases.request_stages.GetRequestStageByIdUseCase
 import com.jonasrosendo.aws_api.domain.usercases.request_stages.RequestStageUseCases
-import com.jonasrosendo.aws_api.domain.usercases.requests.*
-import com.jonasrosendo.aws_api.web.controllers.request_stages.GetAllRequestStagesByRequestId
+import com.jonasrosendo.aws_api.domain.usercases.request_stages.GetAllRequestStagesByRequestId
 import com.jonasrosendo.aws_api.web.controllers.request_stages.UpdateRequestStageStatus
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
