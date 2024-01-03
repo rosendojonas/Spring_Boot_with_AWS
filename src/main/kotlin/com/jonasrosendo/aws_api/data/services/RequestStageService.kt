@@ -4,6 +4,8 @@ import com.jonasrosendo.aws_api.data.repositories.requests.RequestStageRepositor
 import com.jonasrosendo.aws_api.domain.enums.RequestState
 import com.jonasrosendo.aws_api.domain.models.RequestStage
 import jakarta.persistence.EntityNotFoundException
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
 import java.util.*
 
@@ -22,8 +24,8 @@ class RequestStageService(
         }
     }
 
-    fun findAllByRequestId(id: Long): List<RequestStage> {
-        return requestStageRepository.findAllByRequestId(id = id)
+    fun findAllByRequestId(id: Long, pageable:Pageable): Page<RequestStage> {
+        return requestStageRepository.findAllByRequestId(id = id, pageable = pageable)
     }
 
     fun updateStatus(id: Long, state: RequestState): RequestStage {

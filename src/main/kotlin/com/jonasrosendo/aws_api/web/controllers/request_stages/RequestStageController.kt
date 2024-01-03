@@ -2,11 +2,14 @@ package com.jonasrosendo.aws_api.web.controllers.request_stages
 
 import com.jonasrosendo.aws_api.domain.dtos.request_stages.CreateRequestStageDTO
 import com.jonasrosendo.aws_api.domain.dtos.request_stages.UpdateRequestStageDTO
-import com.jonasrosendo.aws_api.domain.enums.RequestState
 import com.jonasrosendo.aws_api.domain.models.RequestStage
 import com.jonasrosendo.aws_api.domain.usercases.request_stages.RequestStageUseCases
 import com.jonasrosendo.aws_api.utils.RestConstants.RequestStages
 import jakarta.validation.Valid
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
+import org.springframework.data.domain.Sort
+import org.springframework.data.web.PageableDefault
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -30,8 +33,11 @@ class RequestStageController(
     }
 
     @GetMapping("/request/{id}")
-    fun findAllByRequestId(@PathVariable id: Long): ResponseEntity<List<RequestStage>> {
-        val requestStages = requestStageUseCases.getAllRequestStagesByRequestId(id)
+    fun findAllByRequestId(
+        @PathVariable id: Long,
+        @PageableDefault(size = 5, sort = ["realizationDate"], direction = Sort.Direction.ASC) pageable: Pageable,
+    ): ResponseEntity<Page<RequestStage>> {
+        val requestStages = requestStageUseCases.getAllRequestStagesByRequestId(id, pageable)
         return ResponseEntity.ok(requestStages)
     }
 
