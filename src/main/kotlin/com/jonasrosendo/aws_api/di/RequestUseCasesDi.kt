@@ -2,15 +2,15 @@ package com.jonasrosendo.aws_api.di
 
 import com.jonasrosendo.aws_api.data.services.RequestService
 import com.jonasrosendo.aws_api.data.services.UserService
-import com.jonasrosendo.aws_api.domain.usercases.*
+import com.jonasrosendo.aws_api.domain.usercases.requests.*
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
 @Configuration
-class UseCasesDi {
+class RequestUseCasesDi {
 
     @Bean
-    fun requestRequestUseCases(
+    fun requestUseCases(
         createRequestUseCase: CreateRequestUseCase,
         updateRequestUseCase: UpdateRequestUseCase,
         getRequestByIdUseCase: GetRequestByIdUseCase,

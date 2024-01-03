@@ -1,13 +1,13 @@
-package com.jonasrosendo.aws_api.domain.usercases
+package com.jonasrosendo.aws_api.domain.usercases.requests
 
 import com.jonasrosendo.aws_api.data.services.RequestService
 import com.jonasrosendo.aws_api.domain.models.Request
 
-class GetRequestByIdUseCase(
+class GetAllRequestsUseCase(
     private val requestService: RequestService
 ) {
 
-    operator fun invoke(id: Long): Request {
-        return requestService.findById(id);
+    operator fun invoke(): List<Request> {
+        return requestService.findAll()
     }
 }

@@ -1,4 +1,4 @@
-package com.jonasrosendo.aws_api.domain.usercases
+package com.jonasrosendo.aws_api.domain.usercases.requests
 
 import com.jonasrosendo.aws_api.data.services.RequestService
 import com.jonasrosendo.aws_api.data.services.UserService

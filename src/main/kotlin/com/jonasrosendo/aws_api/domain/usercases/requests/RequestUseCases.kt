@@ -1,4 +1,4 @@
-package com.jonasrosendo.aws_api.domain.usercases
+package com.jonasrosendo.aws_api.domain.usercases.requests
 
 data class RequestUseCases(
     val createRequestUseCase: CreateRequestUseCase,
