@@ -1,4 +1,4 @@
-package com.jonasrosendo.aws_api.domain.dtos
+package com.jonasrosendo.aws_api.domain.dtos.users
 
 import com.jonasrosendo.aws_api.utils.EMAIL_VALIDATION_PATTERN
 import jakarta.validation.constraints.Email
