@@ -6,6 +6,9 @@ import com.jonasrosendo.aws_api.domain.models.Request
 import com.jonasrosendo.aws_api.domain.usercases.requests.RequestUseCases
 import com.jonasrosendo.aws_api.utils.RestConstants.Requests
 import jakarta.validation.Valid
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
+import org.springframework.data.web.PageableDefault
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -45,16 +48,19 @@ class RequestController(
     }
 
     @GetMapping
-    fun findAll(): ResponseEntity<List<Request>> {
-        val requests = useCases.getAllRequestsUseCase()
+    fun findAll(
+        @PageableDefault(size = 5) pageable: Pageable
+    ): ResponseEntity<Page<Request>> {
+        val requests = useCases.getAllRequestsUseCase(pageable)
         return ResponseEntity.ok(requests)
     }
 
     @GetMapping("/owner/{id}")
     fun findAllByOwnerId(
         @PathVariable id: Long,
-    ): ResponseEntity<List<Request>> {
-        val requests = useCases.getAllRequestsByOwnerIdUseCase(id)
+        @PageableDefault(size = 5) pageable: Pageable
+    ): ResponseEntity<Page<Request>> {
+        val requests = useCases.getAllRequestsByOwnerIdUseCase(id, pageable)
         return ResponseEntity.ok(requests)
     }
 }
