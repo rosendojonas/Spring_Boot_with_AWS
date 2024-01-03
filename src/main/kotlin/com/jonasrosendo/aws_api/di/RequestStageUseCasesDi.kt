@@ -6,7 +6,7 @@ import com.jonasrosendo.aws_api.domain.usercases.request_stages.CreateRequestSta
 import com.jonasrosendo.aws_api.domain.usercases.request_stages.GetRequestStageByIdUseCase
 import com.jonasrosendo.aws_api.domain.usercases.request_stages.RequestStageUseCases
 import com.jonasrosendo.aws_api.domain.usercases.request_stages.GetAllRequestStagesByRequestId
-import com.jonasrosendo.aws_api.web.controllers.request_stages.UpdateRequestStageStatus
+import com.jonasrosendo.aws_api.domain.usercases.request_stages.UpdateRequestStageStatus
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
