@@ -1,5 +1,6 @@
 package com.jonasrosendo.aws_api.domain.models
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import com.jonasrosendo.aws_api.domain.enums.RequestState
 import jakarta.persistence.*
 import java.io.Serializable
@@ -20,9 +21,11 @@ data class RequestStage(
     @Column(name = "state", nullable = false)
     @Enumerated(value = EnumType.STRING)
     val state: RequestState = RequestState.OPEN,
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "request_id", referencedColumnName = "id", nullable = false)
     val request: Request,
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "owner_id", referencedColumnName = "id", nullable = false)
     val owner: User

@@ -3,7 +3,7 @@ package com.jonasrosendo.aws_api.web.controllers.requests
 import com.jonasrosendo.aws_api.domain.dtos.requests.CreateRequestDTO
 import com.jonasrosendo.aws_api.domain.dtos.requests.UpdateRequestDTO
 import com.jonasrosendo.aws_api.domain.models.Request
-import com.jonasrosendo.aws_api.domain.usercases.RequestUseCases
+import com.jonasrosendo.aws_api.domain.usercases.requests.RequestUseCases
 import com.jonasrosendo.aws_api.utils.RestConstants.Requests
 import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
