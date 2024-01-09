@@ -10,6 +10,7 @@ import com.jonasrosendo.aws_api.domain.responses.UserResponse
 import com.jonasrosendo.aws_api.utils.RestConstants.Users
 import com.jonasrosendo.aws_api.web.mapper.toResponse
 import com.jonasrosendo.aws_api.web.mapper.toUser
+import org.apache.coyote.Response
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -42,5 +43,10 @@ class UserController(
         currentUser?.let {
             userService.updateUser(it.copy(role = Role.valueOf(updateUserDTO.role)))
         }
+    }
+
+    @GetMapping
+    fun findAll(): ResponseEntity<List<User>> {
+        return ResponseEntity.ok(userService.findAll())
     }
 }
