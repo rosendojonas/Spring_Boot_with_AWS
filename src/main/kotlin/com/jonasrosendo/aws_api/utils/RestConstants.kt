@@ -6,17 +6,13 @@ object RestConstants {
 
     object Users {
         private const val USERS = "users"
-        private const val LOGIN = "login"
 
         /**
          * api/v1/users
          **/
         const val ROOT_USER_CONTROLLER = "$API_V1/$USERS"
 
-        /**
-         * api/v1/user/login
-         **/
-        const val LOGIN_PATH = "/login"
+
     }
 
     object Requests {
@@ -26,6 +22,16 @@ object RestConstants {
          * api/v1/requests
          **/
         const val ROOT_REQUEST_CONTROLLER = "$API_V1/$REQUESTS"
+    }
+
+    object Auth {
+        private const val AUTH = "auth"
+
+        /**
+         * api/v1/auth
+         **/
+        const val ROOT_AUTH_CONTROLLER = "$API_V1/${AUTH}"
+
     }
 
 

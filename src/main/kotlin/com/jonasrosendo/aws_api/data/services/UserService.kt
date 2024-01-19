@@ -43,15 +43,4 @@ class UserService(
     fun findUserByEmail(email: String): User? {
         return userRepository.findByEmail(email)
     }
-
-    fun login(email: String, password: String): User {
-        val user = findUserByEmail(email)
-
-        val isCredentialValid = user?.let {
-            bCryptPasswordEncoder.matches(password, user.password)
-        } ?: false
-
-        return if (isCredentialValid) user!! else throw CredentialException("Invalid Credentials")
-
-    }
 }
