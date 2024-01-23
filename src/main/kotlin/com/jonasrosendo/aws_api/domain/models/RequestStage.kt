@@ -25,7 +25,7 @@ data class RequestStage(
     @ManyToOne
     @JoinColumn(name = "request_id", referencedColumnName = "id", nullable = false)
     val request: Request,
-    @JsonIgnore
+    @get:JsonIgnore
     @ManyToOne
     @JoinColumn(name = "owner_id", referencedColumnName = "id", nullable = false)
     val owner: User

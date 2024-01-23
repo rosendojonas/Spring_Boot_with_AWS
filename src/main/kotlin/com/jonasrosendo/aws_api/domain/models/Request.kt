@@ -23,10 +23,13 @@ data class Request(
     @Column(name = "state", length = 12, nullable = false)
     @Enumerated(value = EnumType.STRING)
     val state: RequestState,
-    @JsonIgnore
+    @get:JsonIgnore
     @ManyToOne
     @JoinColumn(name = "owner_id", referencedColumnName = "id", nullable = false)
     val owner: User,
     @OneToMany(mappedBy = "request")
-    val stages: List<RequestStage> = arrayListOf()
+    val stages: List<RequestStage> = arrayListOf(),
+    @OneToMany(mappedBy = "request")
+    val files: List<RequestFile> = arrayListOf()
+
 ) : Serializable
